@@ -5,30 +5,28 @@
 </template>
 
 <script>
-
-export default {
-}
+export default {}
 </script>
 
 <style>
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 10px;
-  }
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 10px;
+}
 </style>
 
 <style lang="postcss">
-  .canvas {
-    @apply flex justify-center items-center;
-  }
-  .phone {
-    width: 380px;
-    height: 700px;
+.canvas {
+  @apply flex justify-center items-center;
+}
+.phone {
+  width: 380px;
+  height: 700px;
 
-    @apply bg-gray-200;
-  }
+  @apply bg-gray-200;
+}
 </style>
