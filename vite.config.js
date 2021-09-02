@@ -5,10 +5,5 @@ import ViteComponents from 'vite-plugin-components'
 import { ViteAliases } from 'vite-aliases'
 
 export default defineConfig({
-  plugins: [
-    Vue(),
-    Icons(),
-    ViteAliases(),
-    ViteComponents()
-  ],
-});
+  plugins: [Vue(), Icons(), ViteAliases(), ViteComponents()]
+})
