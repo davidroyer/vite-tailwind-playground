@@ -1,6 +1,9 @@
 <template>
   <div class="canvas">
-    <div class="border-8 border-black rounded-xl phone">phone</div>
+    <div class="border-8 border-black rounded-xl phone">
+      phone
+      <div class="nested">Nested content</div>
+    </div>
   </div>
 </template>
 
@@ -10,10 +13,9 @@ export default {}
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+
   color: #2c3e50;
   margin-top: 10px;
 }
@@ -27,6 +29,10 @@ export default {}
   width: 380px;
   height: 700px;
 
-  @apply bg-gray-200;
+  @apply bg-gray-100;
+
+  .nested {
+    @apply text-indigo-700 bg-gray-300;
+  }
 }
 </style>
