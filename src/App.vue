@@ -8,11 +8,19 @@
 
     <main class="app-wrapper-child">
       <div class="container-wrapper">
-        <!-- <TableExample />
+        <VTableWrapper title="Tire Summaries">
+          <VTable
+            :headers="tireActivitySummaries.headers"
+            :table-data="tireActivitySummaries.tableData"
+          />
+        </VTableWrapper>
 
-        <hr class="my-6" /> -->
-        <h2 class="text-2xl text-gray-700 mb-2 mt-4">Tire Summaries</h2>
-        <VTable />
+        <VTableWrapper title="Vehicle Summaries">
+          <VTable
+            :headers="vehicleActivitySummaries.headers"
+            :table-data="vehicleActivitySummaries.tableData"
+          />
+        </VTableWrapper>
       </div>
     </main>
 
@@ -22,18 +30,29 @@
   </div>
 </template>
 
-<script></script>
+<script>
+import {
+  tireActivitySummaries,
+  vehicleActivitySummaries
+} from '@data/mockTable'
+// const { headers, tableData } = tireActivitySummaries
 
-<style>
+export default {
+  data: () => ({
+    tireActivitySummaries,
+    vehicleActivitySummaries
+  })
+}
+</script>
+
+<style lang="postcss">
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-</style>
 
-<style lang="postcss">
 .app-wrapper {
-  @apply bg-gray-200 flex flex-col h-screen;
+  @apply bg-gray-200 flex flex-col min-h-screen;
 
   main {
     @apply flex-1;

@@ -25,7 +25,7 @@
               font-medium
               whitespace-nowrap
             "
-            :class="determinedTextAlignment(value)"
+            :class="determinedClasses(value)"
           >
             {{ text }}
           </th>
@@ -36,8 +36,15 @@
           <td
             v-for="(item, key) in rowObject"
             :key="key"
-            class="px-6 py-4 whitespace-nowrap text-gray-900 text-sm"
-            :class="determinedTextAlignment(key)"
+            class="
+              px-6
+              py-4
+              whitespace-nowrap
+              text-sm
+              font-medium
+              text-gray-700
+            "
+            :class="determinedClasses(key)"
           >
             {{ item }}
           </td>
@@ -48,20 +55,50 @@
 </template>
 
 <script>
-import { tireActivitySummaries } from '@data/mockTable'
-const { headers, tableData } = tireActivitySummaries
 export default {
+  props: {
+    headers: {
+      type: Array,
+      default() {
+        return []
+      }
+    },
+    tableData: {
+      type: Array,
+      default() {
+        return []
+      }
+    }
+  },
   data: () => ({
-    headers,
-    tableData
+    // headers,
+    // tableData
   }),
 
   methods: {
-    determinedTextAlignment(id) {
-      return id === 'summaryType' ? 'text-left' : 'text-right'
+    isSummaryColumn(id) {
+      return id === 'summaryType' ? true : false
+    },
+
+    determinedClasses(id) {
+      const summaryClasses = ['text-left']
+
+      // 'text-gray-500',
+      const regularClasses = ['text-right', 'texxt-right']
+
+      return this.isSummaryColumn(id) ? summaryClasses : regularClasses
     }
   }
 }
 </script>
 
-<style></style>
+<style lang="postcss" scoped>
+tr > th:first-of-type,
+td:first-of-type {
+  @apply w-64;
+}
+
+td:first-of-type {
+  @apply font-semibold;
+}
+</style>
